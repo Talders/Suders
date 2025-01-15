@@ -65,7 +65,8 @@ public class MainTitleScreen implements Screen {
 
     @Override
     public void hide() {
-        stage.removeListener(mainScreenButtonListener);
+        stage.dispose();
+        viewport = null;
         mainScreenButtonListener = null;
     }
 

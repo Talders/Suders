@@ -33,6 +33,7 @@ public class MapRenderer {
     @Getter
     private Box2DDebugRenderer debugRenderer;
     private DebugUIScreen debugUIScreen;
+    @Getter
     private TiledMap tiledMap;
     private MapLayer objectMapLayer;
     @Setter
@@ -99,37 +100,4 @@ public class MapRenderer {
         tiledMap.dispose();
         if(debugRenderer != null) debugRenderer.dispose();
     }
-
-    private void createPhysicsFromMap(MapLayer layer) {
-        for (MapObject object : layer.getObjects()) {
-            if (object instanceof RectangleMapObject) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                BodyDef bodyDef = new BodyDef();
-                bodyDef.type = BodyDef.BodyType.StaticBody;
-                bodyDef.position.set(
-                    (rect.x + rect.width / 2) / Assets.PPM,
-                    (rect.y + rect.height / 2) / Assets.PPM
-                );
-
-                Body body = world.createBody(bodyDef);
-
-                PolygonShape shape = new PolygonShape();
-                shape.setAsBox(
-                    rect.width / 2 / Assets.PPM,
-                    rect.height / 2 / Assets.PPM
-                );
-
-                FixtureDef fixtureDef = new FixtureDef();
-                fixtureDef.shape = shape;
-                body.createFixture(fixtureDef);
-
-                //TODO: EVENT DETECTIONS
-                //if(object.getProperties().get("event") != null) {
-                //    eventBodies.put(body, EventType.getFromString((String) object.getProperties().get("event")));
-                //}
-                shape.dispose();
-            }
-        }
-    }
-
 }

@@ -2,11 +2,14 @@ package de.suders.map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.ScreenUtils;
 import de.suders.entity.Player;
 import de.suders.map.logic.*;
 import lombok.Getter;
@@ -31,6 +34,8 @@ public class StartMap implements Map {
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(stage);
         Gdx.input.setInputProcessor(inputMultiplexer);
+        MapLayer mapLayer = mapRenderer.getTiledMap().getLayers().get("collision");
+        if(mapLayer != null) MapManager.createPhysicsFromMap(mapLayer, world);
     }
 
     @Override
@@ -45,6 +50,7 @@ public class StartMap implements Map {
 
     @Override
     public void render(float delta) {
+        ScreenUtils.clear(Color.WHITE);
         physicsManager.step(delta);
         mapRenderer.render(delta);
         if(player != null) player.updateMovement(delta, mapRenderer.getCamera());
