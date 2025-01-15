@@ -5,13 +5,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import de.suders.SudersMain;
+import jdk.tools.jmod.Main;
 
 public class MainScreenButtonListener extends ChangeListener {
 
-    private Game game;
+    private SudersMain game;
     private BitmapFont font;
 
-    public MainScreenButtonListener(Game game, BitmapFont font) {
+    public MainScreenButtonListener(SudersMain game, BitmapFont font) {
         this.game = game;
         this.font = font;
     }
@@ -22,7 +24,7 @@ public class MainScreenButtonListener extends ChangeListener {
         String name = actor.getName();
         switch (name) {
             case "start_button":
-                //game.setScreen(new GameRunningScreen(game, font));
+                game.setScreen(new GameRunningScreen(game));
                 break;
             case "settings_button":
 

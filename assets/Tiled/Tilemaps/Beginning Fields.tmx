@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="600">
- <tileset firstgid="1" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Atlas_Buildings.tsx"/>
- <tileset firstgid="443" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Objects_Buildings.tsx"/>
- <tileset firstgid="448" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Objects_Props.tsx"/>
- <tileset firstgid="467" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Objects_Rocks.tsx"/>
- <tileset firstgid="472" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Objects_Trees.tsx"/>
- <tileset firstgid="483" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Atlas_Props.tsx"/>
- <tileset firstgid="663" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Atlas_Rocks.tsx"/>
- <tileset firstgid="685" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Tileset_Ground.tsx"/>
- <tileset firstgid="817" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Tileset_RockSlope.tsx"/>
- <tileset firstgid="4913" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Tileset_RockSlope_Simple.tsx"/>
- <tileset firstgid="4967" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Tileset_Water.tsx"/>
- <tileset firstgid="5255" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Tilesets_Road.tsx"/>
- <tileset firstgid="5315" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Atlas_Trees_Bushes.tsx"/>
- <tileset firstgid="5459" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Animation_Flowers_Red.tsx"/>
- <tileset firstgid="5555" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Animation_Flowers_White.tsx"/>
- <tileset firstgid="5651" source="../../../../Box2D Test 1/assets/Tiled/Tilesets/Animation_Campfire.tsx"/>
+ <tileset firstgid="1" source="../Tilesets/Atlas_Buildings.tsx"/>
+ <tileset firstgid="443" source="../Tilesets/Objects_Buildings.tsx"/>
+ <tileset firstgid="448" source="../Tilesets/Objects_Props.tsx"/>
+ <tileset firstgid="467" source="../Tilesets/Objects_Rocks.tsx"/>
+ <tileset firstgid="472" source="../Tilesets/Objects_Trees.tsx"/>
+ <tileset firstgid="483" source="../Tilesets/Atlas_Props.tsx"/>
+ <tileset firstgid="663" source="../Tilesets/Atlas_Rocks.tsx"/>
+ <tileset firstgid="685" source="../Tilesets/Tileset_Ground.tsx"/>
+ <tileset firstgid="817" source="../Tilesets/Tileset_RockSlope.tsx"/>
+ <tileset firstgid="4913" source="../Tilesets/Tileset_RockSlope_Simple.tsx"/>
+ <tileset firstgid="4967" source="../Tilesets/Tileset_Water.tsx"/>
+ <tileset firstgid="5255" source="../Tilesets/Tilesets_Road.tsx"/>
+ <tileset firstgid="5315" source="../Tilesets/Atlas_Trees_Bushes.tsx"/>
+ <tileset firstgid="5459" source="../Tilesets/Animation_Flowers_Red.tsx"/>
+ <tileset firstgid="5555" source="../Tilesets/Animation_Flowers_White.tsx"/>
+ <tileset firstgid="5651" source="../Tilesets/Animation_Campfire.tsx"/>
  <layer id="13" name="Ground" width="40" height="40">
   <data encoding="csv">
 718,780,780,692,752,699,784,705,782,782,785,699,786,794,699,699,751,693,694,780,780,692,752,705,785,744,730,780,728,755,705,705,798,793,706,780,780,780,780,780,
