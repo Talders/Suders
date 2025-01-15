@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,15 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-public class Walkable {
+public abstract class Walkable extends DynamicEntity {
 
     private Texture walkSheet;
     private Texture idleSheet;
     private Map<Direction, Animation<TextureRegion>> walkAnimations;
     private Map<Direction, Animation<TextureRegion>> idleAnimations;
-
-    @Getter
-    private Body body; // Box2D-Body
 
     @Getter
     protected Vector2 bounds;
@@ -37,7 +35,9 @@ public class Walkable {
 
     protected Direction currentDirection = Direction.DOWN;
 
-    public Walkable(String walkFilePath, String idleWalkPath, int walkRows, int walkColms, int idleRows, int idleColms, boolean controlable, World world, float spawnX, float spawnY) {
+    public Walkable(String walkFilePath, String idlePath, int walkRows, int walkColms, int idleRows, int idleColms, boolean controlable, @NonNull World world, float spawnX, float spawnY) {
+        super(world, spawnX, spawnY);
+        if(walkFilePath == null && idlePath == null) throw new NullPointerException("WalkFilePath and idlePath is null");
         List<Direction> directions = new ArrayList<Direction>();
         directions.add(Direction.LEFT);
         directions.add(Direction.RIGHT);
@@ -48,26 +48,18 @@ public class Walkable {
             walkSheet = new Texture(Gdx.files.internal(walkFilePath));
             TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / walkRows, walkSheet.getHeight() / walkColms);
             addAnimation(tmp, walkAnimations, directions);
-
         }
-        if(idleWalkPath != null) {
+        if(idlePath != null) {
             idleAnimations = new HashMap<Direction, Animation<TextureRegion>>();
-            idleSheet = new Texture(Gdx.files.internal(idleWalkPath));
+            idleSheet = new Texture(Gdx.files.internal(idlePath));
             TextureRegion[][] tmp2 = TextureRegion.split(idleSheet, idleSheet.getWidth() / idleRows, idleSheet.getHeight() / idleColms);
             addAnimation(tmp2, idleAnimations, directions);
         }
 
         this.controlable = controlable;
 
-        // Größe des Spielers
         bounds = new Vector2(1.1f, 1.3f);
         Vector2 boxBounds = new Vector2(1, 0.9f);
-        // Box2D-Body erstellen
-        BodyDef bodyDef = new BodyDef();
-        bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(spawnX, spawnY);
-
-        body = world.createBody(bodyDef);
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(0.5f / 2, 0.5f / 2);
@@ -76,9 +68,8 @@ public class Walkable {
         fixtureDef.shape = shape;
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.9f;
-        fixtureDef.restitution = 0.0f; // Keine Abprallwirkung
-        body.createFixture(fixtureDef);
-
+        fixtureDef.restitution = 0.0f;
+        super.getBody().createFixture(fixtureDef);
         shape.dispose();
     }
 
@@ -131,13 +122,13 @@ public class Walkable {
             velocity.nor().scl(speed * delta);
         }
 
-        body.setLinearVelocity(velocity);
+        super.getBody().setLinearVelocity(velocity);
 
-        if (body.getLinearVelocity().len() < 0.1f) {
-            body.setLinearVelocity(0, 0);
+        if (super.getBody().getLinearVelocity().len() < 0.1f) {
+            super.getBody().setLinearVelocity(0, 0);
         }
 
-        camera.position.set(body.getPosition(), 0);
+        camera.position.set(super.getBody().getPosition(), 0);
 
         if (velocity.len() > 0) {
             stateTime += delta;
@@ -158,6 +149,8 @@ public class Walkable {
         idleTime = 0f;
         return walkAnimations != null ? this.getWalkAnimations().get(currentDirection).getKeyFrame(stateTime, true) : this.getIdleAnimations().get(currentDirection).getKeyFrame(stateTime, true);
     }
+
+    public abstract void onCollision(DynamicEntity other);
 
     public enum Direction {
 

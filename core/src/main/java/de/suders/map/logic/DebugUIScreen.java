@@ -33,5 +33,6 @@ public class DebugUIScreen {
 
     public void dispose() {
         stage.dispose();
+        label.getStyle().font.dispose();
     }
 }

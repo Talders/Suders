@@ -1,6 +1,7 @@
 package de.suders.map.logic;
 
 import com.badlogic.gdx.physics.box2d.*;
+import de.suders.entity.DynamicEntity;
 import de.suders.map.MapManager;
 import lombok.Setter;
 
@@ -21,7 +22,6 @@ public class GameContactListener implements ContactListener {
         Object userDataA = bodyA.getUserData();
         Object userDataB = bodyB.getUserData();
 
-        // Prüfe, ob einer der beiden UserDatas eine Instanz von DynamicEntity ist
         if (userDataA instanceof DynamicEntity && userDataB instanceof DynamicEntity) {
             DynamicEntity entityA = (DynamicEntity) userDataA;
             DynamicEntity entityB = (DynamicEntity) userDataB;

@@ -12,7 +12,8 @@ public class Player extends Walkable {
         super("Art/Characters/Character/Character_Walk.png", "Art/Characters/Character/Character_Idle.png", 4, 4, 2, 4, true, world, spawnX, spawnY);
     }
 
-    public Vector2 getPosition() {
-        return getBody().getPosition();
+    @Override
+    public void onCollision(DynamicEntity other) {
+
     }
 }

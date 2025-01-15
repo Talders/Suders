@@ -1,8 +1,9 @@
-package de.suders.map.logic;
+package de.suders.entity;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.World;
 import lombok.Getter;
 
 public abstract class DynamicEntity {
@@ -10,24 +11,13 @@ public abstract class DynamicEntity {
     @Getter
     private Body body;
 
-    public DynamicEntity(Body body) {
-        this.body = body;
+    public DynamicEntity(World world, float spawnX, float spawnY) {
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(spawnX, spawnY);
+        this.body = world.createBody(bodyDef);
         this.body.setUserData(this);
     }
-
-    /**
-     * Update-Methode zur Aktualisierung der Entität.
-     *
-     * @param delta Zeit zwischen den Frames
-     */
-    public abstract void update(float delta);
-
-    /**
-     * Render-Methode zur Zeichnung der Entität.
-     *
-     * @param batch Der SpriteBatch zum Zeichnen
-     */
-    public abstract void render(SpriteBatch batch);
 
     /**
      * Methode, die bei einer Kollision aufgerufen wird.
