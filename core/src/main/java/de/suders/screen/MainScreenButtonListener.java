@@ -1,19 +1,16 @@
 package de.suders.screen;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import de.suders.SudersMain;
-import jdk.tools.jmod.Main;
 
 public class MainScreenButtonListener extends ChangeListener {
 
-    private SudersMain game;
+    private SudersGame game;
     private BitmapFont font;
 
-    public MainScreenButtonListener(SudersMain game, BitmapFont font) {
+    public MainScreenButtonListener(SudersGame game, BitmapFont font) {
         this.game = game;
         this.font = font;
     }
@@ -24,7 +21,10 @@ public class MainScreenButtonListener extends ChangeListener {
         String name = actor.getName();
         switch (name) {
             case "start_button":
-                game.setScreen(new GameRunningScreen(game));
+                synchronized (game) {
+                    game.setScreen(new GameRunningScreen(game));
+                }
+
                 break;
             case "settings_button":
 

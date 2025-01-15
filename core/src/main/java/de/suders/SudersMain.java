@@ -1,13 +1,21 @@
 package de.suders;
 
-import com.badlogic.gdx.Game;
 import de.suders.screen.MainTitleScreen;
 import de.suders.screen.ScreenManager;
+import de.suders.screen.SudersGame;
+import lombok.Getter;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class SudersMain extends Game {
+public class SudersMain extends SudersGame {
 
    public static ScreenManager screenManager;
+
+   @Getter
+   private static SudersMain instance;
+
+   public SudersMain() {
+        instance = this;
+   }
 
     @Override
     public void create() {

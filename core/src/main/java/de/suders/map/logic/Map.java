@@ -5,11 +5,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public interface Map {
 
-    public abstract String getName();
-    public abstract World getWorld();
-    public abstract MapRenderer getMapRenderer();
-    public abstract Stage getStage();
-    public abstract void kill();
-    public abstract void render(float delta);
+    String getName();
+    World getWorld();
+    MapRenderer getMapRenderer();
+    Stage getStage();
+    void kill();
+    void render(float delta);
 
 }

@@ -9,9 +9,7 @@ public class GameContactListener implements ContactListener {
 
     @Setter
     private World world;
-    /*@Setter
-    private Player player;
-    */@Setter
+    @Setter
     private MapManager mapLoader;
 
     @Override
@@ -29,24 +27,6 @@ public class GameContactListener implements ContactListener {
             entityA.onCollision(entityB);
             entityB.onCollision(entityA);
         }
-        /* Player
-        boolean isPlayerInvolved = bodyA.equals(player.getBody()) || bodyB.equals(player.getBody());
-        if (isPlayerInvolved) {
-            EventType eventType = mapLoader.getEventBodies().get(bodyA);
-            if (eventType == null) {
-                eventType = mapLoader.getEventBodies().get(bodyB);
-            }
-            if(eventType == null) return;
-
-            if (eventType.equals(EventType.TEST)) {
-                if (!SudersMain.eventManager.uniqueEventExists(eventType)) {
-                    SudersMain.eventManager.callEvent(new CallInventoryEvent("debugLayout", mapLoader.getStage()));
-                } else {
-                    SudersMain.eventManager.getUniqueEvent(eventType).callEvent();
-                }
-            }
-
-         */
     }
 
     @Override

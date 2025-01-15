@@ -1,25 +1,24 @@
 package de.suders.screen;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
-import de.suders.SudersMain;
 import de.suders.map.StartMap;
 import de.suders.map.logic.Map;
 import lombok.Getter;
 
 public class GameRunningScreen implements Screen {
 
-    private SudersMain game;
+    private SudersGame game;
     @Getter
     private Map map;
 
-    public GameRunningScreen(SudersMain game) {
+    public GameRunningScreen(SudersGame game) {
         this.game = game;
     }
 
     @Override
     public void show() {
         this.map = new StartMap(true);
+        game.setMap(map);
     }
 
     @Override
@@ -49,6 +48,7 @@ public class GameRunningScreen implements Screen {
 
     @Override
     public void dispose() {
+        game.setMap(null);
         this.map.kill();
     }
 }
