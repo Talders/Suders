@@ -7,12 +7,14 @@ dependencies {
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
   api "com.github.raeleus.stripe:stripe:$stripeVersion"
   api "io.github.classgraph:classgraph:4.8.158"
+  api "com.esotericsoftware:kryo:5.5.0"
   annotationProcessor "org.projectlombok:lombok:$lombokVersion"
   compileOnly "org.projectlombok:lombok:$lombokVersion"
   implementation "io.github.classgraph:classgraph:4.8.158"
+  implementation "com.esotericsoftware:kryo:5.5.0"
 
 
-  if(enableGraalNative == 'true') {
+  if (enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
 }

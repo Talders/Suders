@@ -3,6 +3,7 @@ package de.suders.assets;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,10 @@ public class Assets {
     public static final int VIEWPORT_WIDTH = 1792;
     public static final int VIEWPORT_HEIGHT = 1024;
     public static final int PPM = 16;
-    public static boolean DEBUG_MODE = true;
     public static final float UNIT_SCALE = 1 / 16f;
-
     public static final String CLOSE_BUTTON = "close_button";
-
+    public static final String GLOBAL_FILE_PATH = (System.getProperty("os.name").toLowerCase().contains("win") ? System.getenv("APPDATA") : new File(System.getProperty("user.home"), "Library/Application Support").getAbsolutePath()) + "\\Suders\\";
+    public static boolean DEBUG_MODE = true;
 
     public static List<Class<?>> getClasses(String packageName) {
         List<Class<?>> classes = new ArrayList<>();

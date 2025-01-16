@@ -42,7 +42,7 @@ public class MapRenderer {
         camera = new MapCamera(spawnX, spawnY);
         batch = new SpriteBatch();
 
-        if(debug) {
+        if (debug) {
             debugRenderer = new Box2DDebugRenderer();
             debugUIScreen = new DebugUIScreen(camera, new BitmapFont());
         }
@@ -67,24 +67,24 @@ public class MapRenderer {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
-        if(objectMapLayer != null) {
+        if (objectMapLayer != null) {
             ArrayList<SortableEntity> entities = new ArrayList<>();
             objectMapLayer.getObjects().forEach(object -> {
                 if (object instanceof TextureMapObject) {
                     entities.add(new SortableEntity((TextureMapObject) object));
                 }
             });
-            if(player != null) {
+            if (player != null) {
                 entities.add(new SortableEntity(this.player));
             }
             entities.sort(Comparator.comparing(SortableEntity::getY).reversed());
-            for(SortableEntity sortableEntity : entities) {
+            for (SortableEntity sortableEntity : entities) {
                 sortableEntity.render(batch);
             }
         }
         batch.end();
 
-        if(debugRenderer != null) {
+        if (debugRenderer != null) {
             debugRenderer.render(world, camera.combined);
             debugUIScreen.render(delta);
         }
@@ -95,6 +95,6 @@ public class MapRenderer {
         renderer.dispose();
         batch.dispose();
         tiledMap.dispose();
-        if(debugRenderer != null) debugRenderer.dispose();
+        if (debugRenderer != null) debugRenderer.dispose();
     }
 }

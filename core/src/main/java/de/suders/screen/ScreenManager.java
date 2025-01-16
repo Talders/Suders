@@ -35,8 +35,8 @@ public class ScreenManager {
     }
 
     public synchronized void loadLayouts() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        for(Class<?> layoutClass : Assets.getClasses("de.suders.content.layout")) {
-            if(layoutClass.getSuperclass().equals(Layout.class)) {
+        for (Class<?> layoutClass : Assets.getClasses("de.suders.content.layout")) {
+            if (layoutClass.getSuperclass().equals(Layout.class)) {
                 Layout layout = (Layout) layoutClass.getDeclaredConstructor().newInstance();
                 addLayout(layout);
             }
@@ -44,8 +44,8 @@ public class ScreenManager {
     }
 
     public void loadListenersToStage(Stage stage) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        for(Class<?> listenerClass : Assets.getClasses("de.suders.content.listener")) {
-            if(InputListener.class.isAssignableFrom(listenerClass)) {
+        for (Class<?> listenerClass : Assets.getClasses("de.suders.content.listener")) {
+            if (InputListener.class.isAssignableFrom(listenerClass)) {
                 InputListener listener = (InputListener) listenerClass.getDeclaredConstructor().newInstance();
                 stage.addListener(listener);
                 listenerCollection.add(listener);
@@ -58,13 +58,13 @@ public class ScreenManager {
     }
 
     public void loadContainer(@NonNull Container container) {
-        if(!containerCollection.containsKey(container.getClass())) {
+        if (!containerCollection.containsKey(container.getClass())) {
             containerCollection.put(container.getClass(), container);
         }
     }
 
     public Container getContainerByClass(@NonNull Class<?> clazz) {
-        if(!containerCollection.containsKey(clazz)) {
+        if (!containerCollection.containsKey(clazz)) {
             try {
                 Container container = (Container) clazz.getDeclaredConstructor().newInstance();
                 loadContainer(container);
@@ -77,10 +77,10 @@ public class ScreenManager {
     }
 
     public boolean disposeContainer(@NonNull Container container) {
-        if(containerCollection.containsKey(container.getClass())) {
-           containerCollection.remove(container.getClass());
-           container.dispose();
-           return true;
+        if (containerCollection.containsKey(container.getClass())) {
+            containerCollection.remove(container.getClass());
+            container.dispose();
+            return true;
         }
         return false;
     }
@@ -91,8 +91,8 @@ public class ScreenManager {
      * @return
      */
     public <T extends Layout> T getLayoutByClass(@NonNull Class<T> targetLayout) {
-        for(Layout layout : layoutCollection.values()) {
-            if(layout.getClass() == targetLayout) {
+        for (Layout layout : layoutCollection.values()) {
+            if (layout.getClass() == targetLayout) {
                 return targetLayout.cast(layout);
             }
         }

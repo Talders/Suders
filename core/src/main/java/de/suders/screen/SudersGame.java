@@ -12,5 +12,4 @@ public abstract class SudersGame extends Game {
     private Map map;
 
     public abstract void create();
-
 }

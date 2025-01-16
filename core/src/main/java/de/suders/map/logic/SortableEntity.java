@@ -31,14 +31,13 @@ public class SortableEntity {
     }
 
     public void render(SpriteBatch batch) {
-        if(player != null) {
-                batch.draw(region,
+        if (player != null) {
+            batch.draw(region,
                 player.getBody().getPosition().x - (bounds.x / 2), // Zentriere Sprite horizontal
                 player.getBody().getPosition().y - (bounds.y / 2) + 0.25f, // Zentriere Sprite vertikal
                 bounds.x,
                 bounds.y);
-        }
-        else {
+        } else {
             batch.draw(region, position.x, position.y, bounds.x, bounds.y);
         }
     }
@@ -48,6 +47,6 @@ public class SortableEntity {
     }
 
     public float getY() {
-        return halfRender ? this.position.y + (this.bounds.y / 2) :  this.position.y + (this.bounds.y / 4);
+        return halfRender ? this.position.y + (this.bounds.y / 2) : this.position.y + (this.bounds.y / 4);
     }
 }

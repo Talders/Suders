@@ -31,7 +31,8 @@ public class MainTitleScreen implements Screen {
         viewport = new FitViewport(Assets.SCREEN_WIDTH, Assets.SCREEN_HEIGHT);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
-        this.skin = SudersMain.screenManager.getUiSkin();;
+        this.skin = SudersMain.screenManager.getUiSkin();
+        ;
         SceneComposerStageBuilder builder = new SceneComposerStageBuilder();
         builder.build(stage, skin, Gdx.files.internal("ui/layout/mainLayout.json"));
         TextButton button = stage.getRoot().findActor("start_button");

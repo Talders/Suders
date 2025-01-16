@@ -13,7 +13,6 @@ public abstract class Layout {
 
     @Getter
     private String layoutName, groupName;
-    protected SceneComposerStageBuilder sceneComposerStageBuilder;
     private Skin skin;
     private Actor actor;
 
@@ -24,8 +23,8 @@ public abstract class Layout {
     }
 
     public final void showLayout(@NonNull Stage stage, Container container) {
-        if(actor == null) {
-            sceneComposerStageBuilder = new SceneComposerStageBuilder();
+        if (actor == null) {
+            SceneComposerStageBuilder sceneComposerStageBuilder = new SceneComposerStageBuilder();
             sceneComposerStageBuilder.build(stage, skin, Gdx.files.internal("ui/layout/" + layoutName + ".json"));
             actor = stage.getRoot().findActor(groupName);
             actor.setUserObject(container);
@@ -33,7 +32,7 @@ public abstract class Layout {
     }
 
     public final void killLayout(@NonNull Stage stage) {
-        if(actor != null) {
+        if (actor != null) {
             stage.getActors().removeValue(actor, true);
             actor = null;
         }

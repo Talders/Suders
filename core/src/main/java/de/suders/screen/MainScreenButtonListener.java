@@ -17,7 +17,7 @@ public class MainScreenButtonListener extends ChangeListener {
 
     @Override
     public void changed(ChangeEvent event, Actor actor) {
-        if(event == null || actor == null || !(game.getScreen() instanceof MainTitleScreen)) return;
+        if (event == null || actor == null || !(game.getScreen() instanceof MainTitleScreen)) return;
         String name = actor.getName();
         switch (name) {
             case "start_button":

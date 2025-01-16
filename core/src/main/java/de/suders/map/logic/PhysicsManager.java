@@ -43,8 +43,8 @@ public class PhysicsManager {
     /**
      * Erstellt einen statischen Box2D-Körper basierend auf einem Rechteck.
      *
-     * @param centerX   X-Koordinate des Zentrums.
-     * @param centerY   Y-Koordinate des Zentrums.
+     * @param centerX    X-Koordinate des Zentrums.
+     * @param centerY    Y-Koordinate des Zentrums.
      * @param halfWidth  Halbe Breite des Rechtecks.
      * @param halfHeight Halbe Höhe des Rechtecks.
      * @return Der erstellte statische Körper.
@@ -74,8 +74,8 @@ public class PhysicsManager {
     /**
      * Erstellt einen dynamischen Box2D-Körper basierend auf einem Rechteck.
      *
-     * @param centerX   X-Koordinate des Zentrums.
-     * @param centerY   Y-Koordinate des Zentrums.
+     * @param centerX    X-Koordinate des Zentrums.
+     * @param centerY    Y-Koordinate des Zentrums.
      * @param halfWidth  Halbe Breite des Rechtecks.
      * @param halfHeight Halbe Höhe des Rechtecks.
      * @return Der erstellte dynamische Körper.

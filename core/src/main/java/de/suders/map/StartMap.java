@@ -47,7 +47,7 @@ public class StartMap implements Map {
         Gdx.input.setInputProcessor(inputMultiplexer);
 
         MapLayer mapLayer = mapRenderer.getTiledMap().getLayers().get("collision");
-        if(mapLayer != null) MapManager.createPhysicsFromMap(mapLayer, world);
+        if (mapLayer != null) MapManager.createPhysicsFromMap(mapLayer, world);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class StartMap implements Map {
         ScreenUtils.clear(Color.WHITE);
         physicsManager.step(delta);
         mapRenderer.render(delta);
-        if(player != null) player.updateMovement(delta, mapRenderer.getCamera());
+        if (player != null) player.updateMovement(delta, mapRenderer.getCamera());
         stage.act(delta);
         stage.draw();
     }

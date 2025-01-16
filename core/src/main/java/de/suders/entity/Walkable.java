@@ -21,37 +21,35 @@ import java.util.Map;
 @Getter
 public abstract class Walkable extends DynamicEntity {
 
-    private Texture walkSheet;
-    private Texture idleSheet;
-    private Map<Direction, Animation<TextureRegion>> walkAnimations;
-    private Map<Direction, Animation<TextureRegion>> idleAnimations;
-
     @Getter
     protected Vector2 bounds;
     protected float stateTime = 0f, idleTime = 0f;
     @Getter
     protected float speed = 700f;
-
+    protected Direction currentDirection = Direction.DOWN;
+    private Texture walkSheet;
+    private Texture idleSheet;
+    private Map<Direction, Animation<TextureRegion>> walkAnimations;
+    private Map<Direction, Animation<TextureRegion>> idleAnimations;
     @Getter
     private boolean controlable;
 
-    protected Direction currentDirection = Direction.DOWN;
-
     public Walkable(String walkFilePath, String idlePath, int walkRows, int walkColms, int idleRows, int idleColms, boolean controlable, @NonNull World world, float spawnX, float spawnY) {
         super(world, spawnX, spawnY);
-        if(walkFilePath == null && idlePath == null) throw new NullPointerException("WalkFilePath and idlePath is null");
+        if (walkFilePath == null && idlePath == null)
+            throw new NullPointerException("WalkFilePath and idlePath is null");
         List<Direction> directions = new ArrayList<Direction>();
         directions.add(Direction.LEFT);
         directions.add(Direction.RIGHT);
         directions.add(Direction.UP);
         directions.add(Direction.DOWN);
-        if(walkFilePath != null) {
+        if (walkFilePath != null) {
             walkAnimations = new HashMap<Direction, Animation<TextureRegion>>();
             walkSheet = new Texture(Gdx.files.internal(walkFilePath));
             TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / walkRows, walkSheet.getHeight() / walkColms);
             addAnimation(tmp, walkAnimations, directions);
         }
-        if(idlePath != null) {
+        if (idlePath != null) {
             idleAnimations = new HashMap<Direction, Animation<TextureRegion>>();
             idleSheet = new Texture(Gdx.files.internal(idlePath));
             TextureRegion[][] tmp2 = TextureRegion.split(idleSheet, idleSheet.getWidth() / idleRows, idleSheet.getHeight() / idleColms);
@@ -77,7 +75,7 @@ public abstract class Walkable extends DynamicEntity {
 
     private void addAnimation(TextureRegion[][] tmpRegion, Map<Direction, Animation<TextureRegion>> animations, List<Direction> directions) {
         int i = 0;
-        for(Direction direction : directions) {
+        for (Direction direction : directions) {
             TextureRegion[] frame = tmpRegion[i];
             Animation<TextureRegion> anim = new Animation<>(0.1f, frame);
             anim.setPlayMode(Animation.PlayMode.LOOP);
@@ -94,7 +92,7 @@ public abstract class Walkable extends DynamicEntity {
     }
 
     public void updateMovement(float delta, Camera camera) {
-        if(!controlable) return;
+        if (!controlable) return;
         Vector2 velocity = new Vector2(0, 0);
 
         if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {

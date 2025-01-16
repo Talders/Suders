@@ -1,237 +1,237 @@
 {
-com.badlogic.gdx.graphics.g2d.BitmapFont: {
-	trebuc: {
-		file: trebuc.fnt
-		scaledSize: -1
-		markupEnabled: false
-		flip: false
-	}
-	trebuc-title-shadow: {
-		file: trebuc-title-shadow.fnt
-		scaledSize: -1
-		markupEnabled: false
-		flip: false
-	}
-}
-com.badlogic.gdx.graphics.Color: {
-	black_shadow_color: {
-		r: 0.043137256
-		g: 0.043137256
-		b: 0.043137256
-		a: 0.8820225
-	}
-	red_selected_color: {
-		r: 0.9764706
-		g: 0.5803922
-		b: 0.5803922
-		a: 1
-	}
-	white_color: {
-		r: 0.9529412
-		g: 0.9529412
-		b: 0.9529412
-		a: 1
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
-	progressbar_light_beige: {
-		name: progressbar
-		color: {
-			r: 1
-			g: 0.9019608
-			b: 0.6784314
-			a: 1
-		}
-	}
-	progressbar_bright: {
-		name: progressbar
-		color: {
-			r: 1
-			g: 0.96862745
-			b: 0.89411765
-			a: 1
-		}
-	}
-	white_cursor: {
-		name: progress_content
-		color: {
-			r: 0.9372549
-			g: 0.9372549
-			b: 0.9372549
-			a: 1
-		}
-	}
-	iconCross_grey_hover: {
-		name: iconCross_grey
-		color: {
-			r: 0.83137256
-			g: 0.83137256
-			b: 0.83137256
-			a: 1
-		}
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
-	default: {
-		up: buttonLong_beige
-		down: buttonLong_beige_pressed
-		over: TitleButton
-	}
-	soundButton: {
-		up: soundButtonSquare_beige
-		down: soundButtonSquare_beige_pressed
-		over: textbox_focused
-	}
-	musicButton: {
-		up: musicButtonSquare_beige
-		down: musicButtonSquare_beige_pressed
-		over: textbox_focused
-	}
-	closeButton: {
-		up: iconCross_grey
-		down: iconCross_blue
-		over: iconCross_grey_hover
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
-	default: {
-		checkboxOn: buttonSquare_beige
-		checkboxOff: buttonSquare_beige_checked
-		font: trebuc
-		fontColor: white_color
-	}
-	musicButton: {
-		checkboxOn: musicButtonSquare_beige
-		checkboxOff: musicButtonSquare_beige_pressed
-		font: trebuc
-	}
-	soundButton: {
-		checkboxOn: soundButtonSquare_beige
-		checkboxOff: soundButtonSquare_beige_pressed
-		font: trebuc
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
-	default: {
-		imageUp: buttonLong_beige
-	}
-	title: {
-		imageUp: TitleButton
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
-	default: {
-		imageUp: buttonLong_beige
-		imageDown: buttonLong_beige_pressed
-		font: trebuc
-		fontColor: white_color
-	}
-	title: {
-		imageUp: TitleButton
-		font: trebuc-title-shadow
-		fontColor: white_color
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
-	default: {
-		font: trebuc
-		fontColor: white_color
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
-	default: {
-		font: trebuc
-		fontColorSelected: red_selected_color
-		fontColorUnselected: white_color
-		selection: TitleButton
-		over: TitleButton
-		background: window_beige.9
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
-	default-horizontal: {
-		background: progressbar
-		knobBefore: progress_content
-	}
-	default-vertical: {
-		background: progressbar_90
-		knobBefore: progress_content
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
-	default: {
-		background: panel_beige
-		hScrollKnob: progressbar
-		vScrollKnob: progressbar_90
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
-	default: {
-		font: trebuc
-		fontColor: white_color
-		background: buttonLong_beige
-		scrollStyle: default
-		listStyle: default
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
-	default-horizontal: {
-		background: progressbar_bright
-		knob: progressbar_90
-	}
-	default-vertical: {
-		background: progressbar_90
-		knob: progressbar
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
-	default-horizontal: {
-		handle: progress_content
-	}
-	default-vertical: {
-		handle: progress_content
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
-	default: {
-		font: trebuc
-		fontColor: white_color
-		up: buttonLong_beige
-		down: buttonLong_beige_pressed
-		over: TitleButton
-	}
-	title: {
-		font: trebuc-title-shadow
-		fontColor: white_color
-		up: TitleButton
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
-	default: {
-		font: trebuc
-		fontColor: white_color
-		background: textbox_unfocused
-		focusedBackground: textbox_focused
-		cursor: white_cursor
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
-	default: {
-		label: default
-		background: tooltip-beige
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Tree$TreeStyle: {
-	default: {
-		plus: tree-plus-beige
-		minus: tree-minus-beige
-	}
-}
-com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
-	default: {
-		background: window_beige.9
-		titleFont: trebuc-title-shadow
-		titleFontColor: white_color
-	}
-}
+  com.badlogic.gdx.graphics.g2d.BitmapFont: {
+    trebuc: {
+      file: trebuc.fnt
+      scaledSize: -1
+      markupEnabled: false
+      flip: false
+    }
+    trebuc-title-shadow: {
+      file: trebuc-title-shadow.fnt
+      scaledSize: -1
+      markupEnabled: false
+      flip: false
+    }
+  }
+  com.badlogic.gdx.graphics.Color: {
+    black_shadow_color: {
+      r: 0.043137256
+      g: 0.043137256
+      b: 0.043137256
+      a: 0.8820225
+    }
+    red_selected_color: {
+      r: 0.9764706
+      g: 0.5803922
+      b: 0.5803922
+      a: 1
+    }
+    white_color: {
+      r: 0.9529412
+      g: 0.9529412
+      b: 0.9529412
+      a: 1
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
+    progressbar_light_beige: {
+      name: progressbar
+      color: {
+        r: 1
+        g: 0.9019608
+        b: 0.6784314
+        a: 1
+      }
+    }
+    progressbar_bright: {
+      name: progressbar
+      color: {
+        r: 1
+        g: 0.96862745
+        b: 0.89411765
+        a: 1
+      }
+    }
+    white_cursor: {
+      name: progress_content
+      color: {
+        r: 0.9372549
+        g: 0.9372549
+        b: 0.9372549
+        a: 1
+      }
+    }
+    iconCross_grey_hover: {
+      name: iconCross_grey
+      color: {
+        r: 0.83137256
+        g: 0.83137256
+        b: 0.83137256
+        a: 1
+      }
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+    default: {
+      up: buttonLong_beige
+      down: buttonLong_beige_pressed
+      over: TitleButton
+    }
+    soundButton: {
+      up: soundButtonSquare_beige
+      down: soundButtonSquare_beige_pressed
+      over: textbox_focused
+    }
+    musicButton: {
+      up: musicButtonSquare_beige
+      down: musicButtonSquare_beige_pressed
+      over: textbox_focused
+    }
+    closeButton: {
+      up: iconCross_grey
+      down: iconCross_blue
+      over: iconCross_grey_hover
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
+    default: {
+      checkboxOn: buttonSquare_beige
+      checkboxOff: buttonSquare_beige_checked
+      font: trebuc
+      fontColor: white_color
+    }
+    musicButton: {
+      checkboxOn: musicButtonSquare_beige
+      checkboxOff: musicButtonSquare_beige_pressed
+      font: trebuc
+    }
+    soundButton: {
+      checkboxOn: soundButtonSquare_beige
+      checkboxOff: soundButtonSquare_beige_pressed
+      font: trebuc
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
+    default: {
+      imageUp: buttonLong_beige
+    }
+    title: {
+      imageUp: TitleButton
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
+    default: {
+      imageUp: buttonLong_beige
+      imageDown: buttonLong_beige_pressed
+      font: trebuc
+      fontColor: white_color
+    }
+    title: {
+      imageUp: TitleButton
+      font: trebuc-title-shadow
+      fontColor: white_color
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+    default: {
+      font: trebuc
+      fontColor: white_color
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
+    default: {
+      font: trebuc
+      fontColorSelected: red_selected_color
+      fontColorUnselected: white_color
+      selection: TitleButton
+      over: TitleButton
+      background: window_beige.9
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
+    default-horizontal: {
+      background: progressbar
+      knobBefore: progress_content
+    }
+    default-vertical: {
+      background: progressbar_90
+      knobBefore: progress_content
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
+    default: {
+      background: panel_beige
+      hScrollKnob: progressbar
+      vScrollKnob: progressbar_90
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
+    default: {
+      font: trebuc
+      fontColor: white_color
+      background: buttonLong_beige
+      scrollStyle: default
+      listStyle: default
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
+    default-horizontal: {
+      background: progressbar_bright
+      knob: progressbar_90
+    }
+    default-vertical: {
+      background: progressbar_90
+      knob: progressbar
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
+    default-horizontal: {
+      handle: progress_content
+    }
+    default-vertical: {
+      handle: progress_content
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
+    default: {
+      font: trebuc
+      fontColor: white_color
+      up: buttonLong_beige
+      down: buttonLong_beige_pressed
+      over: TitleButton
+    }
+    title: {
+      font: trebuc-title-shadow
+      fontColor: white_color
+      up: TitleButton
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
+    default: {
+      font: trebuc
+      fontColor: white_color
+      background: textbox_unfocused
+      focusedBackground: textbox_focused
+      cursor: white_cursor
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
+    default: {
+      label: default
+      background: tooltip-beige
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Tree$TreeStyle: {
+    default: {
+      plus: tree-plus-beige
+      minus: tree-minus-beige
+    }
+  }
+  com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
+    default: {
+      background: window_beige.9
+      titleFont: trebuc-title-shadow
+      titleFontColor: white_color
+    }
+  }
 }

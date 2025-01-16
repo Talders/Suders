@@ -16,7 +16,7 @@ public class BasicListener extends ClickListener {
 
     @Override
     public boolean keyUp(InputEvent event, int keycode) {
-        if(keycode == Input.Keys.E) {
+        if (keycode == Input.Keys.E) {
             Container container = SudersMain.screenManager.getContainerByClass(WelcomeContainer.class);
             if (container.isVisible())
                 container.dispose();
@@ -30,15 +30,15 @@ public class BasicListener extends ClickListener {
     public void clicked(InputEvent event, float x, float y) {
         Stage stage = event.getStage();
         Actor actor = event.getTarget();
-        if(actor instanceof Button) {
-            Button button = (Button)actor;
-            if(button.getName().equals(Assets.CLOSE_BUTTON)) {
+        if (actor instanceof Button) {
+            Button button = (Button) actor;
+            if (button.getName().equals(Assets.CLOSE_BUTTON)) {
                 Group group = actor.getParent();
-                if(group != null) {
+                if (group != null) {
                     Object userData = group.getUserObject();
-                    if(userData instanceof Container) {
-                        Container container = (Container)userData;
-                        if(!SudersMain.screenManager.disposeContainer(container))
+                    if (userData instanceof Container) {
+                        Container container = (Container) userData;
+                        if (!SudersMain.screenManager.disposeContainer(container))
                             throw new RuntimeException(container.getLayout().getLayoutName() + " Layout of a Container could´nt be closed!");
                         else
                             return;

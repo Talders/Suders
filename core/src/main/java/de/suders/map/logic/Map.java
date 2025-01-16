@@ -6,10 +6,15 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public interface Map {
 
     String getName();
+
     World getWorld();
+
     MapRenderer getMapRenderer();
+
     Stage getStage();
+
     void kill();
+
     void render(float delta);
 
 }
