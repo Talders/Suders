@@ -3,7 +3,6 @@ package de.suders.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import de.suders.assets.Assets;
@@ -32,12 +31,18 @@ public class ScreenManager {
 
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("ui/mainAtlas.atlas"));
         uiSkin.addRegions(atlas);
+
+        try {
+            loadLayouts();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public synchronized void loadLayouts() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         for (Class<?> layoutClass : Assets.getClasses("de.suders.content.layout")) {
             if (layoutClass.getSuperclass().equals(Layout.class)) {
-                Layout layout = (Layout) layoutClass.getDeclaredConstructor().newInstance();
+                Layout layout = (Layout) layoutClass.getDeclaredConstructor(Skin.class).newInstance(this.uiSkin);
                 addLayout(layout);
             }
         }
@@ -45,10 +50,10 @@ public class ScreenManager {
 
     public void loadListenersToStage(Stage stage) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         for (Class<?> listenerClass : Assets.getClasses("de.suders.content.listener")) {
-            if (InputListener.class.isAssignableFrom(listenerClass)) {
-                InputListener listener = (InputListener) listenerClass.getDeclaredConstructor().newInstance();
-                stage.addListener(listener);
-                listenerCollection.add(listener);
+            if (EventListener.class.isAssignableFrom(listenerClass)) {
+                EventListener listener = (EventListener) listenerClass.getDeclaredConstructor().newInstance();
+                stage.addListener(EventListener.class.cast(listener));
+                listenerCollection.add(EventListener.class.cast(listener));
             }
         }
     }
@@ -63,10 +68,10 @@ public class ScreenManager {
         }
     }
 
-    public Container getContainerByClass(@NonNull Class<?> clazz) {
+    public Container getContainerByClass(@NonNull Class<?> clazz, @NonNull Stage stage) {
         if (!containerCollection.containsKey(clazz)) {
             try {
-                Container container = (Container) clazz.getDeclaredConstructor().newInstance();
+                Container container = (Container) clazz.getDeclaredConstructor(Stage.class).newInstance(stage);
                 loadContainer(container);
                 return container;
             } catch (Exception exc) {

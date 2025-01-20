@@ -27,21 +27,23 @@ public class SudersMain extends SudersGame {
     public void create() {
         try {
             resourceManager = new ResourceManager();
-            System.out.println(resourceManager.getSettings().toString() + " TO STRING");
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         screenManager = new ScreenManager();
-        setScreen(new MainTitleScreen(this));
+        MainTitleScreen mainTitleScreen = new MainTitleScreen(this);
+        try {
+            setScreen(mainTitleScreen);
+
+            screenManager.loadListenersToStage(mainTitleScreen.getStage());
+        } catch (Exception exc) {
+            throw new RuntimeException(exc);
+        }
     }
 
     @Override
     public void dispose() {
         super.dispose();
-        resourceManager.getSettings().setSoundVolume(44);
-        resourceManager.getSettings().setMusicVolume(30);
-
         resourceManager.saveSerializableResource(resourceManager.getSettings());
     }
 }

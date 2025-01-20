@@ -26,6 +26,8 @@ public abstract class Walkable extends DynamicEntity {
     protected float stateTime = 0f, idleTime = 0f;
     @Getter
     protected float speed = 700f;
+    @Getter
+    protected boolean movingAllowed = true;
     protected Direction currentDirection = Direction.DOWN;
     private Texture walkSheet;
     private Texture idleSheet;
@@ -92,7 +94,7 @@ public abstract class Walkable extends DynamicEntity {
     }
 
     public void updateMovement(float delta, Camera camera) {
-        if (!controlable) return;
+        if (!controlable || !movingAllowed) return;
         Vector2 velocity = new Vector2(0, 0);
 
         if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {

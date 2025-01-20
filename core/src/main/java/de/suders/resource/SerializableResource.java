@@ -1,19 +1,16 @@
 package de.suders.resource;
 
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.io.Input;
-import com.esotericsoftware.kryo.io.Output;
 import de.suders.assets.Assets;
 import lombok.Getter;
 import lombok.NonNull;
 
-import java.io.*;
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
+@Getter
 public abstract class SerializableResource implements Serializable {
 
-    @Getter
-    private String fileName;
+    private transient String fileName;
 
     public SerializableResource(@NonNull String fileName) {
         this.fileName = Assets.GLOBAL_FILE_PATH + fileName;
@@ -29,11 +26,11 @@ public abstract class SerializableResource implements Serializable {
                 boolean wasAccessible = field.isAccessible();
                 if(!wasAccessible) field.setAccessible(true);
                 if (i == 0) {
-                    s = "{" + field.getName() + "=" + field.get(field.getDeclaringClass().newInstance()) + ",";
+                    s = "{" + field.getName() + "=" + field.get(this) + ",";
                 } else if (i == fields.length - 1) {
-                    s += field.getName() + "=" + field.get(field.getDeclaringClass().newInstance()) + "}";
+                    s += field.getName() + "=" + field.get(this) + "}";
                 } else {
-                    s += field.getName() + "=" + field.get(field.getDeclaringClass().newInstance()) + ",";
+                    s += field.getName() + "=" + field.get(this) + ",";
                 }
                 if(!wasAccessible) field.setAccessible(false);
             }

@@ -18,6 +18,13 @@ public abstract class Container {
         isVisible = false;
     }
 
+    public void toggleContainer() {
+        if (isVisible)
+            dispose();
+        else
+            showContainer();
+    }
+
     public void showContainer() {
         layout.showLayout(stage, this);
         isVisible = true;

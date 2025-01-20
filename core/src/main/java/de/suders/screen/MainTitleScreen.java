@@ -2,44 +2,38 @@ package de.suders.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.ray3k.stripe.scenecomposer.SceneComposerStageBuilder;
 import de.suders.SudersMain;
 import de.suders.assets.Assets;
+import de.suders.content.container.MainTitleContainer;
+import de.suders.content.logic.Container;
+import lombok.Getter;
 
 public class MainTitleScreen implements Screen {
 
+    @Getter
     private Stage stage;
     private Viewport viewport;
     private Skin skin;
     private SudersMain game;
-    private MainScreenButtonListener mainScreenButtonListener;
 
     public MainTitleScreen(SudersMain game) {
         this.game = game;
+        stage = new Stage();
     }
 
     @Override
     public void show() {
         viewport = new FitViewport(Assets.SCREEN_WIDTH, Assets.SCREEN_HEIGHT);
-        stage = new Stage(viewport);
+        stage.setViewport(viewport);
         Gdx.input.setInputProcessor(stage);
         this.skin = SudersMain.screenManager.getUiSkin();
-        ;
-        SceneComposerStageBuilder builder = new SceneComposerStageBuilder();
-        builder.build(stage, skin, Gdx.files.internal("ui/layout/mainLayout.json"));
-        TextButton button = stage.getRoot().findActor("start_button");
-        Label label = button.getLabel();
-        BitmapFont font = button.getStyle().font;
-
-        stage.addListener(mainScreenButtonListener = new MainScreenButtonListener(game, font));
+        MainTitleContainer mainTitleContainer = (MainTitleContainer) SudersMain.screenManager.getContainerByClass(MainTitleContainer.class, stage);
+        mainTitleContainer.showContainer();
     }
 
     @Override
@@ -66,9 +60,11 @@ public class MainTitleScreen implements Screen {
 
     @Override
     public void hide() {
-        stage.dispose();
+        Container container = SudersMain.screenManager.getContainerByClass(MainTitleContainer.class, stage);
+        if(container != null)
+            container.dispose();
+        stage.getRoot().clearChildren();
         viewport = null;
-        mainScreenButtonListener = null;
     }
 
     @Override

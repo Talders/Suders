@@ -4,57 +4,47 @@ size: 2048, 2048
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
-TitleButton
+Cross
   rotate: false
-  xy: 1, 714
-  size: 190, 45
-  split: 6, 6, 6, 6
-  pad: 7, 6, 6, 6
-  orig: 190, 45
+  xy: 1991, 1992
+  size: 47, 47
+  orig: 47, 47
   offset: 0, 0
   index: -1
 background
   rotate: false
-  xy: 1, 1009
-  size: 1792, 1024
-  orig: 1792, 1024
+  xy: 1, 1013
+  size: 1794, 1026
+  orig: 1794, 1026
   offset: 0, 0
   index: -1
-buttonSquare_beige_checked
+button_beige_checked
   rotate: false
-  xy: 1897, 1890
-  size: 45, 45
-  split: 7, 6, 5, 5
-  pad: 7, 7, 5, 6
-  orig: 45, 45
+  xy: 193, 767
+  size: 47, 47
+  orig: 47, 47
   offset: 0, 0
   index: -1
-iconCross_blue
+title_button
   rotate: false
-  xy: 611, 894
-  size: 16, 15
-  orig: 16, 15
+  xy: 1797, 1992
+  size: 192, 47
+  split: 7, 7, 7, 8
+  orig: 192, 47
   offset: 0, 0
   index: -1
-iconCross_grey
+window_beigee
   rotate: false
-  xy: 658, 941
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-window_beige.9
-  rotate: false
-  xy: 1795, 1800
-  size: 100, 135
-  split: 8, 8, 43, 7
-  pad: 8, 8, 42, 7
-  orig: 100, 135
+  xy: 509, 823
+  size: 102, 137
+  split: 6, 9, 44, 8
+  pad: 8, 8, 44, 8
+  orig: 102, 137
   offset: 0, 0
   index: -1
 buttonLong_beige
   rotate: false
-  xy: 1, 761
+  xy: 509, 962
   size: 190, 49
   split: 7, 7, 8, 12
   pad: 8, 7, 8, 12
@@ -63,7 +53,7 @@ buttonLong_beige
   index: -1
 buttonLong_beige_pressed
   rotate: false
-  xy: 1795, 1988
+  xy: 1, 769
   size: 190, 45
   split: 8, 7, 8, 8
   orig: 190, 45
@@ -71,7 +61,7 @@ buttonLong_beige_pressed
   index: -1
 buttonSquare_beige
   rotate: false
-  xy: 1795, 1749
+  xy: 1899, 1890
   size: 45, 49
   split: 8, 7, 5, 3
   pad: 5, 5, 5, 10
@@ -80,7 +70,7 @@ buttonSquare_beige
   index: -1
 buttonSquare_beige_pressed
   rotate: false
-  xy: 611, 911
+  xy: 1797, 1792
   size: 45, 45
   split: 8, 7, 5, 3
   pad: 5, 5, 5, 10
@@ -89,7 +79,7 @@ buttonSquare_beige_pressed
   index: -1
 menubar
   rotate: false
-  xy: 48, 679
+  xy: 660, 927
   size: 18, 33
   split: 0, 0, 0, 0
   orig: 18, 33
@@ -97,7 +87,7 @@ menubar
   index: -1
 progressbar_90
   rotate: false
-  xy: 48, 679
+  xy: 660, 927
   size: 18, 33
   split: 3, 3, 3, 3
   orig: 18, 33
@@ -105,7 +95,7 @@ progressbar_90
   index: -1
 musicButtonSquare_beige
   rotate: false
-  xy: 1, 663
+  xy: 613, 911
   size: 45, 49
   split: 7, 8, 5, 9
   pad: 0, 0, 0, 0
@@ -114,7 +104,7 @@ musicButtonSquare_beige
   index: -1
 musicButtonSquare_beige_pressed
   rotate: false
-  xy: 701, 962
+  xy: 1, 671
   size: 45, 45
   split: 8, 7, 5, 5
   pad: 7, 7, 5, 5
@@ -123,7 +113,7 @@ musicButtonSquare_beige_pressed
   index: -1
 panel_beige
   rotate: false
-  xy: 509, 856
+  xy: 1797, 1839
   size: 100, 100
   split: 8, 8, 9, 7
   pad: 8, 7, 9, 8
@@ -132,7 +122,7 @@ panel_beige
   index: -1
 progress_content
   rotate: false
-  xy: 2034, 2018
+  xy: 2040, 2024
   size: 1, 15
   split: 0, 0, 0, 0
   orig: 1, 15
@@ -140,7 +130,7 @@ progress_content
   index: -1
 progressbar
   rotate: false
-  xy: 509, 836
+  xy: 748, 993
   size: 33, 18
   split: 5, 5, 2, 2
   pad: 5, 4, 3, 0
@@ -149,7 +139,7 @@ progressbar
   index: -1
 selectbox_beige
   rotate: false
-  xy: 1795, 1937
+  xy: 1, 718
   size: 190, 49
   split: 7, 75, 5, 11
   pad: 7, 76, 7, 12
@@ -158,7 +148,7 @@ selectbox_beige
   index: -1
 selectbox_beige_pressed
   rotate: false
-  xy: 509, 958
+  xy: 1797, 1941
   size: 190, 49
   split: 7, 75, 5, 11
   pad: 7, 76, 7, 12
@@ -167,14 +157,14 @@ selectbox_beige_pressed
   index: -1
 slider-knob-horizontal
   rotate: false
-  xy: 1795, 1727
+  xy: 1797, 1770
   size: 15, 20
   orig: 15, 20
   offset: 0, 0
   index: -1
 soundButtonSquare_beige
   rotate: false
-  xy: 193, 761
+  xy: 1989, 1941
   size: 45, 49
   split: 7, 7, 5, 9
   pad: 0, 0, 0, 0
@@ -183,7 +173,7 @@ soundButtonSquare_beige
   index: -1
 soundButtonSquare_beige_pressed
   rotate: false
-  xy: 1987, 1988
+  xy: 701, 966
   size: 45, 45
   split: 7, 7, 5, 5
   pad: 0, 0, 0, 0
@@ -192,7 +182,7 @@ soundButtonSquare_beige_pressed
   index: -1
 textbox_focused
   rotate: false
-  xy: 1987, 1941
+  xy: 193, 720
   size: 39, 45
   split: 6, 6, 5, 5
   pad: 6, 6, 6, 6
@@ -201,7 +191,7 @@ textbox_focused
   index: -1
 textbox_unfocused
   rotate: false
-  xy: 193, 714
+  xy: 242, 769
   size: 39, 45
   split: 6, 6, 5, 5
   pad: 6, 6, 6, 6
@@ -210,7 +200,7 @@ textbox_unfocused
   index: -1
 tooltip-beige
   rotate: false
-  xy: 1, 561
+  xy: 1, 569
   size: 40, 100
   split: 5, 5, 5, 5
   orig: 40, 100
@@ -218,21 +208,21 @@ tooltip-beige
   index: -1
 tree-minus-beige
   rotate: false
-  xy: 748, 985
+  xy: 613, 887
   size: 21, 22
   orig: 21, 22
   offset: 0, 0
   index: -1
 tree-plus-beige
   rotate: false
-  xy: 240, 789
+  xy: 48, 695
   size: 22, 21
   orig: 22, 21
   offset: 0, 0
   index: -1
 trebuc-title-shadow
   rotate: false
-  xy: 1, 812
+  xy: 1, 816
   size: 506, 195
   orig: 506, 195
   offset: 0, 0

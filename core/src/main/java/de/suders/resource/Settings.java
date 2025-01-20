@@ -1,25 +1,25 @@
 package de.suders.resource;
 
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.io.Input;
-import com.esotericsoftware.kryo.io.Output;
-import de.suders.assets.Assets;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.*;
 
 @Getter
 @Setter
 public class Settings extends SerializableResource {
 
     private boolean isFullScreen;
+    private boolean vSync;
+    private boolean musicEnabled;
+    private boolean soundEnabled;
     private int soundVolume; //0-100
     private int musicVolume; //0-100
 
     public Settings() {
-        super("settings.txt");
+        super("settings.dat");
+        this.vSync = true;
         this.isFullScreen = false;
+        this.musicEnabled = true;
+        this.soundEnabled = true;
         this.soundVolume = 50;
         this.musicVolume = 50;
     }

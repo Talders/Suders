@@ -22,7 +22,7 @@ public class ResourceManager {
         if (!folder.exists()) {
             System.out.println(folder.mkdir());
         }
-        settings = (Settings) loadSerializableResource(Settings.class, Assets.GLOBAL_FILE_PATH + "settings.txt");
+        settings = (Settings) loadSerializableResource(Settings.class, Assets.GLOBAL_FILE_PATH + "settings.dat");
     }
 
     public final SerializableResource loadSerializableResource(Class<?> clazz, @NonNull String fileName) {
@@ -30,7 +30,9 @@ public class ResourceManager {
              Input input = new Input(fis)) {
             Kryo kryo = new Kryo();
             kryo.register(clazz);
-            return (SerializableResource) kryo.readObject(input, clazz);
+            Object obj = (SerializableResource) kryo.readObject(input, clazz);
+            System.out.println(obj.toString());
+            return (SerializableResource) obj;
         } catch (Exception exc) {
             try {
                 SerializableResource serializableResource = (SerializableResource) clazz.getDeclaredConstructor().newInstance();
@@ -57,6 +59,7 @@ public class ResourceManager {
              Output output = new Output(fos)) {
             Kryo kryo = new Kryo();
             kryo.register(serializableResource.getClass());
+            System.out.println(serializableResource.toString());
             kryo.writeObject(output, serializableResource);
         } catch (Exception exc) {
             exc.printStackTrace();

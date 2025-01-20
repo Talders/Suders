@@ -8,13 +8,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
-import de.suders.SudersMain;
 import de.suders.entity.Player;
 import de.suders.map.logic.GameContactListener;
 import de.suders.map.logic.Map;
 import de.suders.map.logic.MapRenderer;
 import de.suders.map.logic.PhysicsManager;
 import lombok.Getter;
+import lombok.NonNull;
 
 @Getter
 public class StartMap implements Map {
@@ -26,24 +26,17 @@ public class StartMap implements Map {
     private PhysicsManager physicsManager;
     private Player player;
 
-    public StartMap(boolean debug) {
+    public StartMap(boolean debug, @NonNull Stage stage) {
         name = "Start Map";
         world = new World(new Vector2(0, 0), true);
-        stage = new Stage();
-        try {
-            SudersMain.screenManager.loadLayouts();
-            SudersMain.screenManager.loadListenersToStage(stage);
-        } catch (Exception exc) {
-            throw new RuntimeException(exc);
-        }
-
+        this.stage = stage;
 
         mapRenderer = new MapRenderer(world, "Beginning Fields", "Object Layer 1", 14f, 24f, true);
         mapRenderer.setPlayer(player = new Player(14f, 24f, world));
         physicsManager = new PhysicsManager(new GameContactListener(), mapRenderer.getDebugRenderer(), world);
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
-        inputMultiplexer.addProcessor(stage);
+        inputMultiplexer.addProcessor(this.stage);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
         MapLayer mapLayer = mapRenderer.getTiledMap().getLayers().get("collision");
